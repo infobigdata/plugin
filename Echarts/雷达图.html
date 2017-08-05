@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/Mbase.css" />
+		<script src="../js/jquery-1.11.0.min.js"></script>
+		<script src="echarts.min.js"></script>
+	</head>
+
+	<body>
+		<div id="leidatu" style="width: 500px; height: 500px;"></div>
+		<script type="text/javascript">
+			$(function() {
+				// 基于准备好的dom，初始化echarts实例
+				var LeidatuDom = document.getElementById('leidatu');
+				if(LeidatuDom) {
+					var leidatuChart = echarts.init(LeidatuDom);
+					var leidatuOption = {
+						title: {
+							text: '自定义雷达图'
+						},
+						legend: {
+							data: ['图一', '图二', '张三', '李四']
+						},
+						radar: [
+							/*第一个雷达图(圆图)*/
+							{
+								indicator: [
+									{ text: '指标一' },
+									{ text: '指标二' },
+									{ text: '指标三' },
+									{ text: '指标四' },
+									{ text: '指标五' }
+								],
+								/*位置*/
+								center: ['25%', '50%'],
+								/*半径*/
+								radius: 120,
+								/*开始角度*/
+								startAngle: 90,
+								/*圈数*/
+								splitNumber: 4,
+								/**圆形雷达**/
+								shape: 'circle',
+								/*统一的文字样式*/
+								name: {
+									show: true,
+									/*文字*/
+									formatter: '【{value}】',
+									/*样式*/
+									textStyle: {
+										color: '#72ACD1',
+										fontSize: 20
+									}
+								},
+								splitArea: {
+									/*圈填充色*/
+									areaStyle: {
+										color: ['rgba(114, 172, 209, 0.2)',
+											'rgba(114, 172, 209, 0.4)', 'rgba(114, 172, 209, 0.6)',
+											'rgba(114, 172, 209, 0.8)', 'rgba(114, 172, 209, 1)'
+										],
+										/*阴影颜色和尺寸*/
+										shadowColor: 'rgba(0, 0, 0, 0.3)',
+										shadowBlur: 10
+									}
+								},
+								/*坐标轴轴线*/
+								axisLine: {
+									lineStyle: {
+										//color: 'rgba(255, 255, 255, 0.5)'
+										
+										// 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1，相当于在图形包围盒中的百分比，如果最后一个参数传 `true`，则该四个值是绝对的像素位置
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+											offset: 0,
+											color: 'red' // 0% 处的颜色
+										}, {
+											offset: 1,
+											color: 'blue' // 100% 处的颜色
+										}], false)
+									}
+								},
+								/*圈分隔线*/
+								splitLine: {
+									lineStyle: {
+										color: 'rgba(255, 255, 255, 0.5)'
+									}
+								}
+							},
+							{
+								indicator: [
+									{ text: '语文', max: 150 },
+									{ text: '数学', max: 150 },
+									{ text: '英语', max: 150 },
+									{ text: '物理', max: 120 },
+									{ text: '化学', max: 108 },
+									{ text: '生物', max: 72 }
+								],
+								center: ['75%', '50%'],
+								radius: 120
+							}
+						],
+						series: [{
+								name: '雷达图',
+								type: 'radar',
+								itemStyle: {
+									emphasis: {
+										// color: 各异,
+										lineStyle: {
+											width: 4
+										}
+									}
+								},
+								data: [{
+										value: [100, 8, 0.40, -80, 2000],
+										name: '图一',
+										symbol: 'rect',
+										symbolSize: 5,
+										lineStyle: {
+											normal: {
+												type: 'dashed'
+											}
+										}
+									},
+									{
+										value: [60, 5, 0.30, -100, 1500],
+										name: '图二',
+										areaStyle: {
+											normal: {
+												color: 'rgba(255, 255, 255, 0.5)'
+											}
+										}
+									}
+								]
+							},
+							{
+								name: '成绩单',
+								type: 'radar',
+								radarIndex: 1,
+								data: [{
+										value: [120, 118, 130, 100, 99, 70],
+										name: '张三',
+										label: {
+											normal: {
+												show: true,
+												formatter: function(params) {
+													return params.value;
+												}
+											}
+										}
+									},
+									{
+										value: [90, 113, 140, 30, 70, 60],
+										name: '李四',
+										areaStyle: {
+											normal: {
+												opacity: 0.9,
+												color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [{
+														color: '#B8D3E4',
+														offset: 0
+													},
+													{
+														color: '#72ACD1',
+														offset: 1
+													}
+												])
+											}
+										}
+									}
+								]
+							}
+						]
+					}
+					// 使用刚指定的配置项和数据显示图表。
+					leidatuChart.setOption(leidatuOption);
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

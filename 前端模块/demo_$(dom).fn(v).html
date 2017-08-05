@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<style type="text/css">
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				margin: 16px;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>jQuery插件注入:</pre>
+		<div></div>
+		<script type="text/javascript">
+			//fn相当于prototype
+			$(function() {
+				//闭包限定命名空间
+				(function($) {
+					$.fn.extend({
+						"highLight": function(options) {
+							//公共方法调用
+							$.fn.highLight.format(options);
+							//私有方法调用
+							isValid(options);
+							//函数......
+							return this; //这里return 为了支持链式调用
+						}
+					});
+					//默认参数
+					var defaluts = {};
+					//公共方法. 用户可以覆盖该方法
+					$.fn.highLight.format = function(str) {
+						console.log(this);
+					};
+					//此处写私有方法
+					function isValid(options) {};
+				})(window.jQuery);
+
+				//调用
+				//调用者覆盖 插件暴露的共公方法
+				//$.fn.highLight.format = function(txt) {}
+				$("pre").highLight({ /*foreground: 'orange', background: '#ccc' */ }).css('background-color', '#0ff');
+			});
+		</script>
+	</body>
+
+</html>

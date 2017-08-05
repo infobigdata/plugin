@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+	<head>
+		<title>编辑器demo</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<script type="text/javascript" charset="utf-8" src="ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="ueditor.all.js"></script>
+		<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+		<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+		<script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
+
+		<style type="text/css">
+			div {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<div id="box">
+
+			</div>
+
+			<div id="btns">
+				<div><button onclick="create()">创建编辑器</button></div>
+				<div>
+					<button onclick="alert(ue3.getAllHtml())">获得整个html的内容</button>
+					<button onclick="alert(ue3.getContent())">获得内容</button>
+					<button onclick="ue3.setContent('写入内容1234')">写入内容</button>
+					<button onclick="ue3.setContent('写入内容1234',true)">追加内容</button>
+					<button onclick="alert(ue3.getContentTxt())">获得纯文本</button>
+					<button onclick="alert(ue3.getPlainTxt())">获得带格式的纯文本</button>
+					<button onclick="alert(ue3.hasContent())">判断是否有内容</button>
+					<button onclick="ue3.setFocus()">使编辑器获得焦点</button>
+					<button onmousedown="alert(ue3.isFocus(event))">编辑器是否获得焦点</button>
+					<button onmousedown="ue3.setblur(event)">编辑器失去焦点</button>
+
+				</div>
+				<div>
+					<button onclick="alert(ue3.getText())">获得当前选中的文本</button>
+					<button onclick="ue3.insertHtml('插入内容1234')">插入给定的内容</button>
+					<button id="enable" onclick="ue3.setEnabled()">可以编辑</button>
+					<button onclick="ue3.setDisabled()">不可编辑</button>
+					<button onclick="ue3.setHide()">隐藏编辑器</button>
+					<button onclick="ue3.setShow()">显示编辑器</button>
+					<button onclick="ue3.setHeight(300)">设置高度为300默认关闭了自动长高</button>
+				</div>
+
+				<div>
+					<button onclick="alert(ue3.getLocalData())">获取草稿箱内容</button>
+					<button onclick="alert(ue3.clearLocalData()?'草稿箱已清空':'清空失败')">清空草稿箱</button>
+				</div>
+
+			</div>
+			<div>
+				<button onclick="ue3.deleteEditor()">
+    删除编辑器</button>
+			</div>
+
+		</div>
+		<script src="jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function create() {
+				$('#box').append('<script id="editor3" type="text/plain" style="width:1000px;height:100px;">');
+				ue3 = new editorw('editor3');
+				ue3.addListener('ready', function(_ue) {
+					editoBblur(_ue);
+					_ue.setHeight(300);
+					_ue.setContent('<div> <div style="border: 1px solid #6588c5;margin-top: 20px;"> <h2 style="margin: -18px auto 0; width: 192px; height: 36px; text-align: center; font-size: 24px; background-color: #FFFFFF;"> <span style="display: inline-block; width: 12px; height: 12px; margin-top: 11px; border-radius: 50%; background-color: #6588c5;float: left;"></span> <span style="display: inline-block; width: 12px; height: 12px; margin-top: 11px; border-radius: 50%; background-color: #6588c5;float: right;"></span> <span style="display: inline-block; width: 36px; height: 36px; line-height: 36px; border-radius: 50%; background-color: #6588c5; color: #FFFFFF; font-size: 24px;">1</span> </h2> <h2 style="text-align: center;color: #333333; font-size: 18px; font-weight: bold; line-height: 3;"><span>这里输入标题</span></h2> <p style="font-size: 16px; color: #666666; padding: 10px 20px 30px;"> 在这里输入你的内容，注意不要用退格键把所有文字删除，请保留一个或者用鼠标选取后直接输入，防止格式错乱。 </p> </div> </div>');
+					$(_ue.ue.container).blur(function() {
+						alert(_ue.ueId+ '失焦');
+
+					});
+				});
+
+			}
+
+			setTimeout(function() {
+
+			}, 1000);
+
+			/*编辑器失焦的前置事件*/
+			$(window).click(function() {
+				if(!window.editorwInside) {
+					if(window.editorUe) {
+						$(window.editorUe.ue.container).blur();
+						window.editorUe = undefined;
+						window.editorwInside = false;
+					}
+				}
+			});
+			editoBblur = function(_ue) {
+				var _container = _ue.ue.container;
+				$(_container).mouseenter(function() {
+					window.editorUe = _ue;
+					window.editorwInside = true;
+				});
+				$(_container).mouseleave(function() {
+					window.editorwInside = false;
+				});
+				$('#edui_fixedlayer').mouseenter(function() {
+					window.editorwInside = true;
+				});
+				$('#edui_fixedlayer').mouseleave(function() {
+					window.editorwInside = false;
+				});
+			}
+			/*编辑器失焦的前置事件结束*/
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/Mbase.css" />
+		<script src="../js/jquery-1.11.0.min.js"></script>
+		<script src="echarts.min.js"></script>
+		<script src="dataTool.min.js"></script>
+	</head>
+
+	<body>
+		<div id="leidatu" style="width: 800px; height: 800px;"></div>
+		<script type="text/javascript">
+			$(function() {
+				// 基于准备好的dom，初始化echarts实例
+				var LeidatuDom = document.getElementById('leidatu');
+				if(LeidatuDom) {
+					var myChart = echarts.init(LeidatuDom);
+					/**/
+					$.getJSON('npmdepgraph.min10.json', function(json) {
+						myChart.hideLoading();
+						myChart.setOption(option = {
+							title: {
+								text: 'NPM Dependencies'
+							},
+							animationDurationUpdate: 1500,
+							animationEasingUpdate: 'quinticInOut',
+							series: [{
+								type: 'graph',
+								layout: 'none',
+								// progressiveThreshold: 700,
+								data: json.nodes.map(function(node) {
+									return {
+										x: node.x,
+										y: node.y,
+										id: node.id,
+										name: node.label,
+										symbolSize: node.size,
+										itemStyle: {
+											normal: {
+												color: node.color
+											}
+										}
+									};
+								}),
+								edges: json.edges.map(function(edge) {
+									return {
+										source: edge.sourceID,
+										target: edge.targetID
+									};
+								}),
+								label: {
+									emphasis: {
+										position: 'right',
+										show: true
+									}
+								},
+								roam: true,
+								focusNodeAdjacency: true,
+								lineStyle: {
+									normal: {
+										width: 0.5,
+										curveness: 0.3,
+										opacity: 0.7
+									}
+								}
+							}]
+						}, true);
+					});
+					/**/
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

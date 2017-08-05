@@ -1,0 +1,20 @@
+<h3>{{ d.title }}</h3>
+<p class="intro">{{ d.intro }}</p>
+<ul>
+	{{# for(var i = 0, len = d.list.length; i
+	< len; i++){ }} <li>
+		<span>{{ d.list[i].name}}</span>
+		<span>所在城市：
+			{{#
+				for(var j =0,len2 = d.list[i].city.length; j<len2;j++){
+			}}
+				
+				{{ d.list[i].city[j] }}
+				
+			{{# 
+			    } 
+			}}
+			</span>
+		</li>
+		{{# } }}
+</ul>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<!--此处规定将屏幕像素尺寸设置成物理尺寸,并且不允许缩放-->
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<title></title>
+		<script>
+			document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+			//如果设计稿是750px的,而屏幕的物理尺寸小于750px,则css中1rem等于设计稿上100px;
+		</script>
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				font-size: 12px;
+			}
+			/*H5,如果不设置html高度,html高度靠内容撑开*/
+		</style>
+	</head>
+
+	<body>
+		<section style="height: 2000px;">
+			<p>定位分绝对定位,相对定位,固定定位</p>
+			<div style="position: relative;">
+				<p style="position: relative; left: 100px; top: 200px; width: 100px;">
+					相对定位:相对自己原来所占位置的定位,
+					相对定位不脱离文档流,
+					即,它原来占的位置,现在还占着
+				</p>
+				<p style="position: absolute; left: 300px;top: 200px; width: 100px;">
+					绝对定位:相对有定位的父级定位,
+					父级的位置改变了,它也跟着改变,
+					绝对定位脱离文档流
+				</p>
+				<p style="position: fixed; left: 500px; top: 200px; width: 100px;">
+					固定定位:相对浏览器窗口定位,一直固定在浏览器的固定位置,
+					固定定位脱离文档流
+				</p>
+				<p>这个非定位元素会排在相对定位原来占的位置的后面</p>
+			</div>
+		</section>
+	</body>
+
+</html>

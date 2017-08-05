@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box">1111</div>
+		<div id="box1">2222</div>
+		<script type="text/javascript">
+			document.getElementById('IE');
+			document.getElementsByTagName('IE');
+			document.getElementsByClassName('IE9');
+			document.querySelector("IE8");
+			document.querySelectorAll("IE8");
+
+			$Obj = function() {};
+			$Obj.prototype.each = function(a, fn) {
+				var thisA = a;
+				for(var i = 0, len = thisA.length; i < len; i++) {
+					fn(i, thisA[i]);
+				};
+			};
+
+			jQuery = function(a) {
+				if(a != undefined) {
+					var aDom = document.querySelectorAll(a);
+					return new jQueryObj(aDom);
+				};
+			};
+
+			function jQueryObj(a) {
+				this.a = a;
+			};
+
+			jQueryObj.fn = jQueryObj.prototype;
+
+			jQueryObj.fn.get = function(b) {
+				return this.a[b]; //返回原生单节点
+			};
+
+			jQueryObj.fn.eq = function(b) {
+				this.a = [this.a[b]];
+				return this;
+			};
+
+			jQueryObj.fn.css = function(b, c) {
+				var thisAll = this.a;
+				if(c == undefined) {
+					return thisAll[0]['style'][b];
+				};
+				if(b != undefined) {
+					new $Obj().each(thisAll, function(i, n) {
+						n['style'][b] = c;
+					});
+
+					return this;
+				};
+			};
+
+			window.$ = jQuery;
+
+			console.log($('#box').get(0).id);
+
+			$('div').css('width', '200px').css('background-color', '#0077FF');
+
+			$('div').eq(1).css('background-color', '#00FF77');
+
+			console.log($('div').eq(1).css('background-color'));
+		</script>
+	</body>
+
+</html>

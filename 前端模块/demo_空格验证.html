@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>空格验证</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<style type="text/css">
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				margin: 16px;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>
+空格验证:
+&lt;div&gt;
+	&lt;label&gt;&lt;input class=&quot;kgyz&quot; type=&quot;text&quot; value=&quot;&quot;&gt;&lt;span&gt;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&#x683C;&lt;/span&gt;&lt;/label&gt;&lt;br /&gt;
+	&lt;label&gt;&lt;input class=&quot;cskgyz&quot; type=&quot;text&quot;  value=&quot;&#x521D;&#x59CB;&#x65F6;&#x4E0D;&#x4E3A;&#x7A7A;&quot;&gt;&lt;span&gt;&#x521D;&#x59CB;&#x65F6;&#x4E0D;&#x4E3A;&#x7A7A;&lt;/span&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(function() {
+		textLoad(&#x27;.cskgyz&#x27;);
+		$(&#x27;.kgyz&#x27;).on(&#x27;focus&#x27;, focusNull);
+	});
+&lt;/script&gt;
+		</pre>
+		<div>
+			<label><input class="kgyz" type="text" value=""><span>不能为空格</span></label><br />
+			<label><input class="cskgyz" type="text"  value="初始时不为空"><span>初始时不为空</span></label><br />
+			<label><input class="cskgyz" type="text"  value=""><span>初始时为空</span></label>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				textLoad('.cskgyz');
+				$('.kgyz').on('focus', focusNull);
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/Mbase.css" />
+		<script src="../js/jquery-1.11.0.min.js"></script>
+		<script src="echarts.min.js"></script>
+		<script src="dataTool.min.js"></script>
+	</head>
+
+	<body>
+		<div id="leidatu" style="width: 800px; height: 800px;"></div>
+		<script type="text/javascript">
+			$(function() {
+				// 基于准备好的dom，初始化echarts实例
+				var LeidatuDom = document.getElementById('leidatu');
+				if(LeidatuDom) {
+					var myChart = echarts.init(LeidatuDom);
+					/**/
+					$.get('les-miserables.gexf', function(xml) {
+						var graph = echarts.dataTool.gexf.parse(xml);
+
+						var categories = [];
+						for(var i = 0; i < 9; i++) {
+							categories[i] = {
+								name: '类目' + i
+							};
+						}
+						graph.nodes.forEach(function(node) {
+							node.itemStyle = null;
+							node.value = node.symbolSize;
+							node.symbolSize /= 1.5;
+							node.label = {
+								normal: {
+									show: node.symbolSize > 10
+								}
+							};
+							node.category = node.attributes.modularity_class;
+						});
+
+						option = {
+							title: {
+								text: 'Les Miserables',
+								subtext: 'Circular layout',
+								top: 'bottom',
+								left: 'right'
+							},
+							tooltip: {},
+							legend: [{
+								// selectedMode: 'single',
+								data: categories.map(function(a) {
+									return a.name;
+								})
+							}],
+							animationDurationUpdate: 1500,
+							animationEasingUpdate: 'quinticInOut',
+							series: [{
+								name: 'Les Miserables',
+								type: 'graph',
+								layout: 'none',
+								circular: {
+									rotateLabel: true
+								},
+								//edgeSymbol: ['circle', 'arrow'],
+								//edgeSymbolSize: [0, 10],
+								data: graph.nodes,
+								links: graph.links,
+								categories: categories,
+								roam: true,
+								label: {
+									normal: {
+										position: 'right',
+										formatter: '{b}'
+									}
+								},
+								focusNodeAdjacency: true,//隐藏无关节点
+								lineStyle: {
+									normal: {
+										color: 'source',
+										curveness: 0.3
+									}
+								}
+							}]
+						};
+
+						// 使用刚指定的配置项和数据显示图表。
+						myChart.setOption(option);
+					}, 'xml');
+					/**/
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

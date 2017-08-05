@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/mbase.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<h2>制模数据批量绑定{{#js开始}}...html内容...{{#js结束}};{{数据插入处}}</h2>
+		<div id="view"></div>
+		<script type="text/javascript">
+			var gettpl = `
+			<h3>{{ d.title }}</h3>
+			<p class="intro">{{ d.intro }}</p>
+			<ul>
+
+				{{# for(var i = 0, len = d.list.length; i< len; i++){ }} 
+				
+				<li>
+					<span>{{ d.list[i].name}}</span>
+					<span>所在城市：
+					{{#
+						for(var j =0,len2 = d.list[i].city.length; j<len2;j++){
+					}}
+						
+						{{ d.list[i].city[j] }}
+						
+					{{# 
+					    } 
+					}}
+					</span>
+				</li>
+				
+					{{# } }}
+			</ul>
+			`;
+			var data = {
+				title: '前端攻城师',
+				list: [{
+					name: '贤心',
+					city: ['杭州', '北京']
+				}, {
+					name: '谢亮',
+					city: ['北京', '南京']
+				}, {
+					name: '浅浅',
+					city: ['杭州', '天津']
+				}, {
+					name: 'Dem',
+					city: ['北京', '武汉']
+				}]
+			};
+			var view = document.getElementById('view');
+			render(gettpl, data, view);
+		</script>
+		或
+		<div id="view2"></div>
+		<script id="template" type="text/html">
+			<h3>{{ d.title }}</h3>
+			<p class="intro">{{ d.intro }}</p>
+			<ul>
+				{{# for(var i = 0, len = d.list.length; i
+				< len; i++){ }} <li>
+					<span>{{ d.list[i].name}}</span>
+					<span>所在城市：
+						{{#
+							for(var j =0,len2 = d.list[i].city.length; j<len2;j++){
+						}}
+						
+							{{ d.list[i].city[j] }}
+							
+						{{# 
+						    } 
+						}}
+						</span>
+					</li>
+					{{# } }}
+			</ul>
+		</script>
+		<script>
+			var gettpl2 = document.getElementById('template').innerHTML;
+			var data2 = {
+				title: '前端攻城师',
+				list: [{
+					name: '贤心',
+					city: ['杭州', '北京']
+				}, {
+					name: '谢亮',
+					city: ['北京', '南京']
+				}, {
+					name: '浅浅',
+					city: ['杭州', '天津']
+				}, {
+					name: 'Dem',
+					city: ['北京', '武汉']
+				}]
+			};
+			var view2 = document.getElementById('view2');
+			render(gettpl2, data2, view2);
+		</script>
+		或
+		<div id="view3"></div>
+		<script type="text/javascript">
+			$.get("模板引擎-模板.html",
+				function(template) {
+					var gettpl3 = template;
+					var data3 = {
+						title: '前端攻城师',
+						list: [{
+							name: '贤心',
+							city: ['杭州', '北京']
+						}, {
+							name: '谢亮',
+							city: ['北京', '南京']
+						}, {
+							name: '浅浅',
+							city: ['杭州', '天津']
+						}, {
+							name: 'Dem',
+							city: ['北京', '武汉']
+						}]
+					};
+					var view3 = document.getElementById('view3');
+					render(gettpl3, data3, view3);
+				});
+		</script>
+	</body>
+
+</html>

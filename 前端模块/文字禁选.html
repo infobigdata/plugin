@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		</style>
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(document).on('mousemove.MytimeMovedoc', function(ev) {
+				ev.preventDefault();
+			});
+			$('body').on('selectstart', function(ev) {
+				return false;
+			});
+			$('body').on('drag', function(ev) {
+				return false;
+			});
+		</script>
+	</head>
+
+	<body>
+		文字禁选(用于拖拽勾选)
+	</body>
+
+</html>

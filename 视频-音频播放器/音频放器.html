@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Jquery+HTML5</title>
+		<link rel="stylesheet" type="text/css" href="audioPlay.min.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="audioPlay.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background: #f9f9f9;
+			}
+			
+			#maudio {
+				width: 414px;
+				height: 180px;
+				padding: 200px;
+				margin: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="maudio"></div>
+		<script type="text/javascript">
+			$(function() {
+				var audioSettings = {
+					maudio: '#maudio',
+					autoplay: true,
+					loop: true,
+					playlist: [{
+							mp3: 'http://rm.sina.com.cn/wm/VZ2010050511043310440VK/music/MUSIC1005051622027270.mp3',
+							ogg: 'http://dxsn.gongzuo.in/bowen/HTML5player/music/jianshangdie.ogg'
+						}
+						//,{
+						//	mp3: 'http://rm.sina.com.cn/wm/VZ200812161100307607VK/music/MUSIC0812161100379667.mp3',
+						//	ogg: 'http://dxsn.gongzuo.in/bowen/HTML5player/music/wokeyibaonima.ogg'
+						//},
+					]
+				}
+				audioPlay(audioSettings);
+			})
+		</script>
+	</body>
+
+</html>

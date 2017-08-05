@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/Mbase.css" />
+		<script src="../js/jquery-1.11.0.min.js"></script>
+		<script src="echarts.min.js"></script>
+		<script src="nodes-links.js"></script>
+	</head>
+
+	<body>
+		<div id="leidatu" style="width: 800px; height: 800px;"></div>
+		<script type="text/javascript">
+			$(function() {
+				// 基于准备好的dom，初始化echarts实例
+				var LeidatuDom = document.getElementById('leidatu');
+				if(LeidatuDom) {
+					var myChart = echarts.init(LeidatuDom);
+					/**/
+
+					var categories = [];
+					for(var i = 0; i < 9; i++) {
+						categories[i] = {
+							name: '类目' + i
+						};
+					}
+
+					var nodes = nodesAll;
+					var links = linksAll;
+
+					for(var i = 0, len = nodes.length; i < len; i++) {
+						nodes[i].itemStyle = null;
+						nodes[i].value = nodes[i].symbolSize;
+						nodes[i].symbolSize /= 1.5;
+						nodes[i].label = {
+							normal: {
+								show: nodes[i].symbolSize > 10
+							}
+						};
+					}
+
+					option = {
+						title: {
+							text: 'Les Miserables',
+							//subtext: 'Circular layout',
+							top: 'top',
+							left: 'center'
+						},
+						tooltip: {},
+						legend: [{
+							// selectedMode: 'single',
+							top: '25',
+							left: 'center',
+							data: categories.map(function(a) {
+								return a.name;
+							})
+						}],
+						animationDurationUpdate: 1000,
+						animationEasingUpdate: 'quinticInOut',
+						series: [{
+							name: 'Les Miserables',
+							type: 'graph',
+							layout: 'circular',
+							width: '65%',
+							circular: {
+								rotateLabel: true
+							},
+							//edgeSymbol: ['circle', 'arrow'],
+							//edgeSymbolSize: [0, 10],
+							data: nodes,
+							links: links,
+							categories: categories,
+							roam: true,
+							label: {
+								normal: {
+									position: 'right',
+									formatter: '{b}'
+								}
+							},
+							focusNodeAdjacency: true,//隐藏无关节点
+							lineStyle: {
+								normal: {
+									color: 'source',
+									curveness: 0.3
+								}
+							}
+						}]
+					};
+
+					// 使用刚指定的配置项和数据显示图表。
+					myChart.setOption(option);
+					/**/
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

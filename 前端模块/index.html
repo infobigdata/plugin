@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>前端插件API</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<style>
+			.nav a {
+				font-size: 16px;
+				color: #000000;
+			}
+			
+			.nav div a {
+				font-size: 14px;
+				color: #666666;
+			}
+			
+			.nav div a:hover {
+				color: #0981E6;
+			}
+		</style>
+	</head>
+
+	<body>
+		<wrap>
+			<div class="nav left" id="nav">
+				<!--鼠标键盘事件扩展开始-->
+				<a href="javascript:;">鼠标键盘事件扩展</a>
+				<div>
+					<a href="demo_拖拽.html" target="demoframe">拖拽</a>
+					<a href="demo_原生拖拽.html" target="demoframe">原生拖拽</a>
+					<a href="demo_滚轮.html" target="demoframe">滚轮</a>
+					<a href="demo_val改变.html" target="demoframe">val改变</a>
+					<a href="demo_快捷键.html" target="demoframe">快捷键</a>
+					<a href="demo_鼠标右键菜单.html" target="demoframe">鼠标右键菜单</a>
+					<a href="demo_鼠标框选.html	" target="demoframe">鼠标框选</a>
+					<a href="demo_阻止提交.html" target="demoframe">阻止提交</a>
+				</div>
+				<!--鼠标键盘事件扩展结束-->
+				<!--原生模拟扩展开始-->
+				<a href="javascript:;">原生模拟扩展</a>
+				<div>
+					<a href="demo_下拉框.html" target="demoframe">下拉框</a>
+					<a href="demo_单复选框.html" target="demoframe">单复选框</a>
+					<a href="demo_val滑块.html" target="demoframe">val滑块</a>
+					<a href="demo_空格验证.html" target="demoframe">空格验证</a>
+					<a href="demo_滚动条.html" target="demoframe">滚动条</a>
+					<a href="demo_拖拽.html" target="demoframe">拖拽</a>
+					<a href="取色器.html" target="demoframe">选色器</a>
+					<a href="http://www.my97.net/dp/demo/index.htm" target="demoframe">日历</a>
+				</div>
+				<!--原生模拟扩展结束-->
+				<!--方法/插件开始-->
+				<a href="javascript:;">方法/插件</a>
+				<div>
+					<a href="demo_分页.html" target="demoframe">分页</a>
+					<a href="http://www.my97.net/dp/demo/index.htm" target="demoframe">日历</a>
+					<a href="http://www.layui.com/doc/modules/layer.html" target="demoframe">弹层</a>
+					<a href="demo_本地存储.html" target="demoframe">本地存储</a>
+					<a href="demo_cookie.html" target="demoframe">cookie</a>
+					<a href="demo_面向对象.html" target="demoframe">面向对象</a>
+					<a href="demo_$.fn(v).html" target="demoframe">$.fn(v)</a>
+					<a href="demo_$(dom).Ev(fn(ev)).html" target="demoframe">$(dom).Ev(fn(ev))</a>
+					<a href="demo_$(dom).fn(v).html" target="demoframe">$(dom).fn(v)</a>
+				</div>
+				<!--方法/插件结束-->
+			</div>
+			<div class="content" id="content">
+				<iframe name="demoframe" src="demo_拖拽.html" width="100%" height="99%"></iframe>
+			</div>
+		</wrap>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+
+</html>

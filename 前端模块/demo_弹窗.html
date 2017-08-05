@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+		<script src="js/layer/layer.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				layer.open({
+					title: '标题',
+					type: 1,
+					shift: 2,
+					area: '450px',
+					shadeClose: true, //开启遮罩关闭
+					content: '<div style="text-align: center;">内容</div>',
+					btn: ['确定', '取消'], //按钮
+					success: function(layero, index) {
+						//alert('弹层加载完');
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

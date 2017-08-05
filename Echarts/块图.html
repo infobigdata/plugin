@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<div id="container" style="width: 600px; height: 680px;"></div>
+		<script src="echarts.min.js"></script>
+		<script>
+			var myChart = echarts.init(document.getElementById("container"));
+			var data = [{
+				name: '质量问题\n86%',
+				value: 86,
+				itemStyle: {
+					normal: {
+						color: '#ff0000'
+					}
+				},
+				children: [{
+					name: '车身附件及电器\n31.8%',
+					value: 31.8,
+					children: [{
+						name: '同款不同配置\n13.9%',
+						value: 13.9,
+					}, {
+						name: '车内异味\n10.8%',
+						value: 10.8,
+					}, {
+						name: '电瓶故障\n6.8%',
+						value: 6.8,
+					}, {
+						name: '汽油箱异响\n6.4%',
+						value: 6.4,
+					}, {
+						name: '车身生锈\n4.6%',
+						value: 4.6,
+					}]
+				}, {
+					name: '发动机\n23.2%',
+					value: 23.2,
+				}, {
+					name: '变速器\n17.3%',
+					value: 17.3,
+				}, {
+					name: '前后桥及悬挂系统\n10.6%',
+					value: 10.6,
+				}, {
+					name: '制动系统\n6.1%',
+					value: 6.1,
+				}, {
+					name: '转向系统\n4.9%',
+					value: 4.9,
+				}, {
+					name: '轮胎\n3.8%',
+					value: 3.8,
+				}, {
+					name: '离合器\n2.3%',
+					value: 2.3,
+				}]
+			}, {
+				name: '服务问题\n8.5%',
+				value: 8.5,
+				itemStyle: {
+					normal: {
+						color: '#00ff00'
+					}
+				},
+				children: [{
+					name: '服务态度\n25.5%',
+					value: 25.5,
+				}, {
+					name: '承诺不兑现\n15.4%',
+					value: 15.4,
+				}, {
+					name: '销售欺诈\n15.3%',
+					value: 15.3,
+				}, {
+					name: '其他\n14.2%',
+					value: 14.2,
+				}, {
+					name: '人员技术\n13.3%',
+					value: 13.3,
+				}, {
+					name: '配件争议\n10.8%',
+					value: 10.8,
+				}, {
+					name: '服务收费\n5.5%',
+					value: 5.5,
+				}]
+			}, {
+				name: '综合问题\n5.5%',
+				value: 5.5,
+				itemStyle: {
+					normal: {
+						color: '#0000ff'
+					}
+				}
+			}];
+
+			myChart.setOption({
+				title: {
+					text: '汽车问题反馈',
+					left: 'center'
+				},
+				tooltip: {
+					//	formatter:'aaa'
+				},
+				series: [{
+					name: '汽车问题反馈',
+					type: 'treemap',
+					width: 600,
+					height: 600,
+					data: data,
+					leafDepth: 3,
+					itemStyle: {
+						normal: {
+							borderColor: '#fff',
+							borderWidth: 1,
+						}
+					},
+					label: {
+						normal: {
+							textStyle: {
+								fontSize: 16,
+								textAlign: 'center'
+							}
+						}
+					},
+					levels: [{
+						colorSaturation: [0.3, 0.1],
+					}, {
+						colorSaturation: [0.5, 0.3],
+					}, {
+						colorSaturation: [0.7, 0.5],
+					}, {
+						colorSaturation: [0.9, 0.7],
+					}]
+				}]
+			})
+			myChart.setOption(option);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<!--此处规定将屏幕像素尺寸设置成物理尺寸,并且不允许缩放-->
+		<link rel="stylesheet" type="text/css" href="css/Mbase.css" />
+		<title>固定大小</title>
+		<script>
+			document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth < 750) ? (document.documentElement.clientWidth / 7.50 + "px") : "100px";
+			//如果设计稿是750px的,而屏幕的物理尺寸小于750px,则css中1rem等于设计稿上100px;
+		</script>
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				font-size: 12px;
+			}
+			/*H5,如果不设置html高度,html高度靠内容撑开*/
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<div>
+				<img src="img/img_the_scream.jpg" style="display:block;width: 100%; height: 200px;" />
+			</div>
+		</section>
+		<section>
+			<div>
+				<img src="img/img_the_scream.jpg" style="display:block;width: 100%; height: 200px;" />
+			</div>
+		</section>
+		<p>↑面div,section的高度(所占位置)靠子级撑开,一个个的往下堆叠----浏览器中F12查看</p>
+		<section>
+			<div>
+				<img src="img/img_the_scream.jpg" style="display:block;width: 100%; height: 200px; position: absolute; left:0;top: 0;" />
+			</div>
+		</section>
+		<section style="position: relative;">
+			<div>
+				<img src="img/img_the_scream.jpg" style="display:block;width: 100%; height: 200px; position: absolute; left:0;top: 0;" />
+			</div>
+		</section>
+		<p>↑面img定位脱离文档流,div,section的高度(所占位置)不能被子级撑开,高度都为0----浏览器中F12查看</p>
+		<section>
+			<div>
+				<img src="img/img_the_scream.jpg" style="display:block;width: 100%; height: 200px;float: left;" />
+			</div>
+		</section>
+		<p>↑面img浮动脱离文档流,div,section的高度(所占位置)不能被子级撑开,高度都为0----浏览器中F12查看</p>
+		<section>
+			<div style="overflow: hidden;">
+				<img src="img/img_the_scream.jpg" style="display:block;width: 100%; height: 200px;float: left;" />
+			</div>
+		</section>
+		<p>↑面img浮动脱离文档流,但div设置'overflow: hidden;'使div能包裹img的高度,从而具有高度----浏览器中F12查看</p>
+	</body>
+
+</html>

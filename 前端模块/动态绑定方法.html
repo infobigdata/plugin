@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>动态绑定</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<link rel="stylesheet" type="text/css" href="mCustomScrollbar/jquery.mCustomScrollbar.min.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script src="mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<script type="text/javascript" src="js/mbaseBind.js"></script>
+
+	</head>
+
+	<body>
+		<pre>
+		模拟input-range:
+		</pre> ajax添加有绑定方法的节点上;添加一个init属性,on绑定一个myinit事件
+
+		<div class="colorbgD" init="true">99</div>
+		<div id="colorbg" style="width: 200px;"></div>
+
+		<input class="range" type="range" min="1" max="10" step="0.5" style="width: 50px;" /><br/>
+		<input class="range" type="range" min="1" max="10" step="0.5" style="width: 100px;" /><br/>
+		<div id="rangeBox"></div>
+
+		<label><input type="radio" name="radio"/>11</label>
+		<label><input type="radio" name="radio"/>12</label>
+		<div id="radioBox"></div>
+		<br /><br />
+		<div>
+			<label><input type="checkbox" name="checkbox"/>21</label>
+		</div>
+		<br />
+		<br />
+		<select style="width: 200px;">
+			<option>168.com</option>
+			<option>163.net</option>
+			<option>126.com</option>
+			<option>164.com</option>
+			<option>164.net</option>
+			<option>127.com</option>
+			<option>165.com</option>
+			<option>165.net</option>
+			<option>128.com</option>
+		</select>
+		<div id="selectBox"></div>
+		<div class="mselect">
+			<p class="mchecked"><i>提示语</i></p>
+			<input type="hidden" name="" id="" value="" />
+			<div class="moptio-box mScroll">
+				<span class="moption" value="01">1</span>
+				<span class="moption" value="02">2</span>
+				<span class="moption" value="03">3</span>
+				<span class="moption" value="04">4</span>
+				<span class="moption" value="05">5</span>
+				<span class="moption" value="06">6</span>
+				<span class="moption" value="07">7</span>
+			</div>
+		</div>
+		<div id="mselectBox"></div>
+
+		<input class="number" type="number" min="0" max="10" step="2" value="0" />
+		<div id="inputNBox"></div>
+
+		<!--颜色选择器开始-->
+		<div class="mcolor">
+			<canvas class="mc1"></canvas>
+			<canvas class="mc2"></canvas>
+			<input type="hidden" value="" />
+		</div>
+		<!--颜色选择器结束-->
+		<div id="colorD" style="width: 285px; height: 20px; background: #000;"></div>
+		<div id="mcolorBox"></div>
+		<script type="text/javascript">
+			$(function() {
+
+				setTimeout(function() {
+					$('#rangeBox').append('<input class="range" type="range" min="1" max="10" step="0.5" value="5"/>121212<br/>');
+					$('#rangeBox').append('<div><div><input class="range" type="range" min="1" max="10" step="1" style="width:200px;" /><br/></div></div>');
+					DNIFn('#rangeBox');
+
+					$('#radioBox div').eq(0).append('<label><input type="radio" name="radio"/>13</label>');
+					$('#radioBox div').eq(1).append('<label><input type="checkbox" name="checkbox"/>22</label>');
+					DNIFn('#radioBox div');
+
+					$('#mselectBox').append('<div class="mselect"> <p class="mchecked">1</p> <input type="hidden" name="" id="" value="" /> <div class="moptio-box mScroll"> <span class="moption" value="01">1</span> <span class="moption" value="02">2</span> <span class="moption" value="03">3</span> <span class="moption" value="04">4</span> <span class="moption" value="05">5</span> <span class="moption" value="06">6</span> <span class="moption" value="07">7</span> </div> </div>');
+					DNIFn('#mselectBox');
+
+					$('#selectBox').append('<select placeholder="提示语" style="width: 200px;"> <option>163.com</option> <option>163.net</option> <option>126.com</option> <option>163.com</option> <option>163.net</option> <option>126.com</option> <option>163.com</option> <option>163.net</option> <option>126.com</option> </select>');
+					DNIFn('#selectBox');
+
+					$('#mcolorBox').append('<div class="mcolor"> <canvas class="mc1"></canvas> <canvas class="mc2"></canvas> <input type="hidden" value="" /> </div>');
+					DNIFn('#mcolorBox');
+
+					$('#inputNBox').append('<input class="number" type="number" min="0" max="10" step="2" value="0" />');
+					DNIFn('#inputNBox');
+
+					$('#colorbg').append('<div class="colorbgD" init>100</div>');
+					DNIFn('#inputNBox');
+
+				}, 300);
+				$(document).on('change', '.mcolor input', function() {
+					$('#colorD').css('background', $(this).val());
+					console.log($(this).val());
+				});
+				$(document).on('change', 'input,select', function() {
+					console.log('模拟触发原生的change事件this.val:', $(this).val());
+				});
+				$(document).on('myinit', '.colorbgD', function() {
+					$(this).css('background', '#08FFFF');
+					$(this).append('<label><input type="radio" name="radio"/>可添加模拟节点</label><div class="colorD" init>动态添加的init同时再动态添加init,再添加的init不生效</div>');
+				});
+				$(document).on('myinit', '.colorD', function() {
+					$(this).css('color', '#FF0000');
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

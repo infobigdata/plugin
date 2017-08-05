@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mbase.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mbaseBind.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<input class="number" type="number" min="0" max="10" step="2" value="0" />
+		<div id="inputNBox"></div>
+		<script type="text/javascript">
+			$(function() {
+				setTimeout(function() {
+					$('#inputNBox').append('<input class="number" type="number" min="0" max="10" step="2" value="0" />');
+					DNIFn('#inputNBox');
+				}, 1000);
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>H5原生拖拽</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<style type="text/css">
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				margin: 16px;
+				position: relative;
+			}
+			
+			.target {
+				width: 200px;
+				height: 200px;
+				background-color: #C1C1C1;
+				z-index: 0;
+			}
+			
+			.target1 {
+				position: absolute;
+				left: 0px;
+				top: 20px;
+			}
+			
+			.target2 {
+				position: absolute;
+				left: 0px;
+				top: 260px;
+			}
+			
+			#drag {
+				width: 100px;
+				height: 100px;
+				background-color: #00FF77;
+				position: absolute;
+				left: 0px;
+				top: 460px;
+				z-index: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>
+原生拖拽事件:原生拖拽加内拖拽
+		</pre>
+		<!--目标元素-->
+		<div class="target target1">目标元素1</div>
+		<div class="target target2">目标元素2</div>
+		<!--拖拽元素-->
+		<div id="drag" draggable="true">拖拽元素</div>
+		<script type="text/javascript">
+			$(function() {
+				var matches = document.querySelectorAll("#drag, div.target2");
+				console.log(matches);
+				//在目标元素中连续拖拽
+				$('.target').on('dragover', function(ev) {
+					//屏蔽系统事件
+					ev.preventDefault();
+				});
+				//在目标元素上释放
+				$('.target').on('drop', function(ev) {
+					ev.preventDefault();
+					var data = ev.originalEvent.dataTransfer.getData("Text");
+					var oDrag = document.getElementById(data);
+					if(ev.target.getAttribute('dragenter') != 'true') {
+						ev.target.setAttribute('dragenter', 'true');
+						ev.target.appendChild(oDrag);
+						setTimeout(function() {
+							oDrag.style.left = 0;
+							oDrag.style.top = 0;
+						}, 10);
+					};
+					//内移动,删除外移动的绑定
+					setTimeout(function() {
+						console.log('内移动');
+						$("#drag,.target").off();
+						$('#drag').removeAttr('draggable');
+						$('#drag').move(function() {
+							$(this).css({
+								'left': '+=' + this.pageXc,
+								'top': '+=' + this.pageYc
+							});
+						});
+					}, 2000);
+				});
+				//离开目标元素
+				$('.target').on('dragleave', function(ev) {
+					//屏蔽系统事件
+					ev.preventDefault();
+					this.removeAttribute('dragenter');
+				});
+
+				//拖拽元素拖拽前触发
+				$('#drag').on('dragstart', function(ev) {
+					ev.originalEvent.dataTransfer.setData("Text", ev.target.id);
+				});
+				/*拖拽相关事件*/
+				$('#drag').on('dragstart', function(ev) {
+					console.log('开始拖拽');
+				});
+				$('#drag').on('drag', function(ev) {
+					console.log('正在拖拽');
+				});
+				$('#drag').on('dragend', function(ev) {
+					console.log('拖拽结束');
+				});
+				$('#drag').on('dragstart', function(ev) {
+					console.log('开始拖拽');
+				});
+				$('.target').on('dragenter', function(ev) {
+					console.log('进入目标元素');
+				});
+				$('.target').on('dragover', function(ev) {
+					//屏蔽系统事件
+					ev.preventDefault();
+					console.log('在目标元素中移动');
+				});
+				$('.target').on('dragleave', function(ev) {
+					console.log('离开目标元素');
+				});
+				$('.target').on('drop', function(ev) {
+					console.log('在目标元素上释放');
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

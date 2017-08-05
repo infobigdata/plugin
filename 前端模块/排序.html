@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//js自带排序方法:小于100个数用的是冒泡,大于100个用的是堆
+			var arr = [3, 2, 4, 9, 1, 5, 7, 6, 8];
+			//数组使用方法 			　　
+			arr.sort(function(n1, n2) {
+				return n1 - n2
+			});　　
+			console.log(arr);
+
+			var data = [{
+				name: "AAAA",
+				age: 22
+			}, {
+				name: "BBBB",
+				age: 21
+			}, {
+				name: "CCCC",
+				age: 25
+			}];　
+			//数组对象使用方法
+			data.sort(function(n1, n2) {
+				return n1.age - n2.age
+			});
+			console.log(data);
+
+			/*冒泡排序*/
+			var bubbleSort = function(arr) {
+				var i = arr.length,
+					j;
+				var tempExchangVal;
+				while(i > 0) {
+					for(j = 0; j < i - 1; j++) {
+						if(arr[j] > arr[j + 1]) {
+							tempExchangVal = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = tempExchangVal;
+						}
+					}
+					i--;
+				}
+				return arr;
+			}
+
+			var arr = [3, 2, 4, 9, 1, 5, 7, 6, 8];
+			var arrSorted = bubbleSort(arr);
+			console.log(arrSorted);
+
+			/*AuthorJenaszhang
+			 * 大量数据"堆"排序
+			 */
+			var buildMaxHeap = function(arr) {
+				for(var i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
+					heapAdjust(i, arr.length, arr);
+				}
+			};
+
+			var swap = function(i, j, arr) {
+				var tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+			};
+
+			var heapSort = function(arr) {
+				buildMaxHeap(arr);
+				for(var i = arr.length - 1; i > 0; i--) {
+					swap(0, i, arr);
+					heapAdjust(0, i, arr);
+				}
+
+				return arr;
+			};
+
+			var heapAdjust = function(i, j, arr) {
+				var largest = i;
+				var left = 2 * i + 1;
+				var right = 2 * i + 2;
+
+				if(left < j && arr[largest] < arr[left]) {
+					largest = left;
+				}
+
+				if(right < j && arr[largest] < arr[right]) {
+					largest = right;
+				}
+
+				if(largest != i) {
+					swap(i, largest, arr);
+					heapAdjust(largest, j, arr);
+				}
+			};
+
+			var a = new Array(2, 3, 89, 57, 23, 72, 43, 105);
+			console.log(heapSort(a));
+		</script>
+	</body>
+
+</html>

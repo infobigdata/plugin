@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+	</head>
+
+	<body>
+		<img id="scream" src="img/imgTheScream.jpg" style="width: 150px; height: 189px;">
+		<script>
+			var img = document.getElementById("scream");
+			//灰度效果
+			//计算公式 .299 * r + .587 * g + .114 * b;
+			var idx, r, g, b, gray;
+
+			grayFn = function(canvasData) {
+				for(var x = 0, len = canvasData.height; x < len; x++) {
+					for(var y = 0, len = canvasData.height; y < len; y++) {
+						// Index of the pixel in the array  
+						idx = (x + y * canvasData.width) * 4;
+						r = canvasData.data[idx + 0];
+						g = canvasData.data[idx + 1];
+						b = canvasData.data[idx + 2];
+						gray = .299 * r + .587 * g + .114 * b;
+						// assign gray scale value  
+						canvasData.data[idx + 0] = gray; // Red channel  
+						canvasData.data[idx + 1] = gray; // Green channel  
+						canvasData.data[idx + 2] = gray; // Blue channel  
+						canvasData.data[idx + 3] = 255; // Alpha channel  
+					}
+				}
+				return canvasData;
+			};
+
+			img.onload = function() {
+				var c = document.createElement("canvas");
+				var ctx = c.getContext("2d");
+				c.width = this.naturalWidth;
+				c.height = this.naturalHeight;
+				ctx.drawImage(this, 0, 0);
+				var imgData = ctx.getImageData(0, 0, c.width, c.height);
+				imgData = grayFn(imgData);
+				//跨域图片不能处理
+				ctx.putImageData(imgData, 0, 0);
+				var type = 'png';
+				var imgData = c.toDataURL(type);
+				this.src = imgData;
+				this.onload = null;
+			};
+		</script>
+	</body>
+
+</html>

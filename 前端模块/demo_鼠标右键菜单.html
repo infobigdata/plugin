@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标右键菜单</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<style type="text/css">
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				margin: 16px;
+				position: relative;
+			}
+			
+			.menu {
+				position: fixed;
+				left: 0;
+				top: 0;
+				display: none;
+				width: 200px;
+				min-height: 60px;
+				padding: 4px 0px;
+				line-height: 14px;
+				font-size: 12px;
+				color: #2a2a2a;
+				border: 1px #bababa solid;
+				background: #ffffff;
+				box-shadow: 4px 4px 4px #8e8e8e;
+			}
+			
+			.menu li {
+				padding: 2px 0;
+			}
+			
+			.menu a {
+				display: block;
+				padding: 4px 20px;
+				color: #2a2a2a;
+			}
+			
+			.menu a:hover {
+				background-color: #DDDDDD;
+			}
+			
+			.menu a.disabled {
+				color: #C1C1C1;
+				cursor: default;
+			}
+			
+			.menu a.disabled:hover {
+				background-color: #FFFFFF;
+			}
+			
+			.menu em {
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>
+鼠标右键菜单:
+		</pre>
+		<!--鼠标右键菜单-->
+		<div class="menu" id="menu1">
+			<ul class="menu-ul">
+				<li class="menu-li">
+					<a href="javascript:;"><span>剪切(X)</span><em>Ctrl+X</em></a>
+				</li>
+				<li class="menu-li">
+					<a href="javascript:;"><span>拷贝(C)</span><em>Ctrl+C</em></a>
+				</li>
+				<li class="menu-li">
+					<a class="disabled" href="javascript:;"><span>重复最后操作(Y)</span><em>Ctrl+Y</em></a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				//鼠标右键菜单
+				$(window).contextmenu(function(ev) {
+					//唯一一个右键菜单
+					$('#menu1').css({
+						'display': 'block',
+						'left': ev.pageX,
+						'top': ev.pageY
+					});
+					//屏蔽系统事件
+					ev.preventDefault();
+				});
+				$(window).click(function() {
+					$(".menu").css({
+						'display': 'none',
+						'left': 0,
+						'top': 0
+					});
+				});
+				$(document).on('click', '.menu', function(ev) {
+					//阻止冒泡
+					ev.stopPropagation();
+				});
+			});
+		</script>
+	</body>
+
+</html>

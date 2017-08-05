@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>键鼠配合</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<style type="text/css">
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				margin: 16px;
+				position: relative;
+			}
+			
+			.key {
+				width: 100px;
+				height: 100px;
+				background: #0077FF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>
+快捷键:
+		</pre>
+		<div class="key"></div>
+
+		<script type="text/javascript">
+			$(function() {
+				$(document).keydown(function(ev) {
+					//屏蔽系统事件
+					//ev.preventDefault();
+					$('pre').get(0).innerHTML += '<br>' + ev.key + '-keyCode:' + ev.keyCode;
+					//if(ev.altKey) console.log('Alt');
+					//if(ev.ctrlKey) console.log('Ctrl');
+					//if(ev.metaKey) console.log('Meta');
+					//if(ev.shiftKey) console.log('Shift');
+					if(ev.keyCode == 13) {
+						$('pre').get(0).innerHTML += '<br>' + '回车：Enter；';
+					};
+					if(ev.keyCode == 27) {
+						$('pre').get(0).innerHTML += '<br>' + '取消当前命令：Esc';
+					};
+					if(ev.keyCode == 88 && ev.ctrlKey) {
+						$('pre').get(0).innerHTML += '<br>' + 'Ctrl+X 剪切';
+					};
+					if(ev.keyCode == 67 && ev.ctrlKey) {
+						$('pre').get(0).innerHTML += '<br>' + 'Ctrl+C 复制';
+					};
+					if(ev.keyCode == 86 && ev.ctrlKey) {
+						$('pre').get(0).innerHTML += '<br>' + 'Ctrl+V 粘贴';
+					};
+					if(ev.keyCode == 89 && ev.ctrlKey) {
+						$('pre').get(0).innerHTML += '<br>' + 'Ctrl+Y 重复最后操作';
+					};
+					if(ev.keyCode == 90 && ev.ctrlKey) {
+						$('pre').get(0).innerHTML += '<br>' + 'Ctrl+Z 撤销操作';
+					};
+
+				});
+				$('.key').click(function(ev) {
+					if(ev.altKey) $('pre').get(0).innerHTML += '<br>' + 'Alt';
+					if(ev.ctrlKey) $('pre').get(0).innerHTML += '<br>' + 'Ctrl';
+					if(ev.metaKey) $('pre').get(0).innerHTML += '<br>' + 'Meta';
+					if(ev.shiftKey) $('pre').get(0).innerHTML += '<br>' + 'Shift';
+					//屏蔽系统事件
+					//ev.preventDefault();
+				});
+			});
+		</script>
+	</body>
+
+</html>

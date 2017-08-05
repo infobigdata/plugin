@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html,
+			body,
+			div,
+			span,
+			applet,
+			object,
+			iframe,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			blockquote,
+			pre,
+			a,
+			abbr,
+			acronym,
+			address,
+			big,
+			cite,
+			code,
+			del,
+			dfn,
+			em,
+			img,
+			ins,
+			kbd,
+			q,
+			s,
+			samp,
+			small,
+			strike,
+			strong,
+			sub,
+			sup,
+			tt,
+			var,
+			b,
+			u,
+			i,
+			center,
+			dl,
+			dt,
+			dd,
+			ol,
+			ul,
+			li,
+			fieldset,
+			form,
+			label,
+			legend,
+			table,
+			caption,
+			tbody,
+			tfoot,
+			thead,
+			tr,
+			th,
+			td,
+			article,
+			aside,
+			canvas,
+			details,
+			embed,
+			figure,
+			figcaption,
+			footer,
+			header,
+			hgroup,
+			menu,
+			nav,
+			output,
+			ruby,
+			section,
+			summary,
+			time,
+			mark,
+			audio,
+			video {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-size: 100%;
+				vertical-align: baseline;
+			}
+			
+			.demo {
+				margin-bottom: 40px;
+			}
+			
+			.demo h3,
+			.demo-title {
+				color: #1e70cd;
+				margin: 60px 0 5px;
+				text-align: center;
+				font-size: 20px;
+				font-weight: 300;
+				line-height: 35px;
+			}
+			
+			.demo .demo-links {
+				text-align: right;
+			}
+			
+			.demo .demo-iframe {
+				margin: 1em auto;
+				box-shadow: 0px 0px 1px 0px #aaa;
+				background: #eee;
+				position: relative;
+			}
+			
+			.demo iframe {
+				display: block;
+				width: 100%;
+				border: none;
+				margin: 0;
+				box-sizing: border-box;
+				height: 400px;
+				width: 1px;
+				min-width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo">
+			<h3>
+		默认设置(01)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/01-default.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe frameborder="0" scrolling="no" src="demo/demos/01-default.html" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		自适应 / 全屏 + 分页(02)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/02-responsive.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe frameborder="0" scrolling="no" src="demo/demos/02-responsive.html"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		垂直方向 + 自适应 / 全屏(03)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/03-vertical.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe frameborder="0" scrolling="no" src="demo/demos/03-vertical.html"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		视差效果(28)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/28-parallax.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/28-parallax.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		渐变效果(16)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/16-effect-fade.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/16-effect-fade.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		3D 方块效果(17)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/17-effect-cube.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/17-effect-cube.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		3D 覆盖流效果(18)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/18-effect-coverflow.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/18-effect-coverflow.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		3D 翻转效果(35)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/35-effect-flip.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/35-effect-flip.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+
+		<div class="demo">
+			<h3>
+		在Slides之间产生间隙(04)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/04-space-between.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/04-space-between.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		分组显示 / Carousel 模式(05)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/05-slides-per-view.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/05-slides-per-view.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		自动分组 / Carousel 模式(06)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/06-slides-per-view-auto.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/06-slides-per-view-auto.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		Slides居中(07)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/07-centered.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/07-centered.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		Slides居中 + 自动分组(08)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/08-centered-auto.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/08-centered-auto.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		Free 模式 / 不自动贴合(09)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/09-freemode.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/09-freemode.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		多行Slides 分布(10)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/10-slides-per-column.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/10-slides-per-column.html" frameborder="0" scrolling="no" style="height:430px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		Swipers嵌套(11)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/11-nested.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/11-nested.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		抓手光标(12)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/12-grab-cursor.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/12-grab-cursor.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		滚动条(13)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/13-scrollbar.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/13-scrollbar.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		控制按钮(14)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/14-nav-arrows.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/14-nav-arrows.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		Loop （循环）模式 / 无限 Loop(15)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/15-infinite-loop.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/15-infinite-loop.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+
+		<div class="demo">
+			<h3>
+		键盘控制 (在新窗口打开)(19)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/19-keyboard-control.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/19-keyboard-control.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		鼠标控制(20)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/20-mousewheel-control.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/20-mousewheel-control.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		自动切换(21)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/21-autoplay.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/21-autoplay.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		动态加载 Slides(22)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/22-dynamic-slides.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/22-dynamic-slides.html" frameborder="0" scrolling="no" style="height:380px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		缩略图控制(23)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/23-thumbs-gallery.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/23-thumbs-gallery.html" frameborder="0" scrolling="no" style="height:600px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		散列导航 (25)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/25-hash-navigation.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/25-hash-navigation.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		RTL 布局(26)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/26-rtl.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/26-rtl.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+
+		<div class="demo">
+			<h3>
+		自定义导航(29)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/29-custom-pagination.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/29-custom-pagination.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		分式导航(36)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/36-pagination-fraction.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/36-pagination-fraction.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		进度条导航(37)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/37-pagination-progress.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/37-pagination-progress.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+
+		<div class="demo">
+			<h3>
+		延迟加载(30)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/30-lazy-load-images.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/30-lazy-load-images.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		内容滚动(32)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/32-scroll-container.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/32-scroll-container.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+
+		<div class="demo">
+			<h3>
+		响应式设置(33)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/33-responsive-breakpoints.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/33-responsive-breakpoints.html" frameborder="0" scrolling="no"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		自动高度(34)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/34-autoheight.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/34-autoheight.html" frameborder="0" scrolling="no" style="height:600px;"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		变焦、点击放大（39）</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/39-zoom.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/39-zoom.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+		<div class="demo">
+			<h3>
+		可滑动菜单(32)</h3>
+			<div class="demo-links">
+				<a class="demo-link-new-window" href="demo/demos/32-slideable-menu.html" target="_blank">在新窗口打开</a>
+			</div>
+			<div class="demo-iframe">
+				<iframe src="demo/demos/32-slideable-menu.html" frameborder="0" scrolling="no" style="height:340px"></iframe></div>
+		</div>
+
+	</body>
+
+</html>

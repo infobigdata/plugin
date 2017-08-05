@@ -1,0 +1,248 @@
+/*可以在这里添加你自己的css*/
+body{
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 16px;
+  word-wrap: break-word;
+  /*overflow: hidden;*/
+}
+.page {
+  padding-top: 20px;
+}
+
+.page-background {
+  padding: 20px 4px;
+  background: white;
+}
+
+.page-background::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: url(../img/theme1_top.png) no-repeat;
+  background-size: 100% 10px;
+  top: 0;
+  left: 0
+}
+
+.mobilestyle .page-container:first-of-type .page-background::before {
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+.text_element {
+  color: #555;
+  -webkit-font-smoothing: auto;
+}
+
+.headline {
+  position: relative;
+  color: #14709b;
+  font-size: 3em;
+  font-weight: 600;
+  padding: 10px 0;
+  text-align: center;
+  line-height: 1.3
+}
+
+.subtitle {
+  padding: 4px 0;
+  border-bottom: 1px solid #b6d1de;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #14709b;
+  line-height: 1.4;
+}
+
+.thirdtitle {
+  font-size: 1.5em;
+  color: #14709b;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.bodytext {
+  line-height: 1.8;
+}
+
+.seHandler {
+  border-bottom-color: #85b3c8;
+}
+
+.swHandler {
+  border-left-color: #85b3c8;
+}
+
+
+/*.cell { background-color: #fff}*/
+
+.edit_mode .page:hover .cell {
+  border-color: #85b3c8;
+}
+
+.brush_bg_body,
+.preview .text_item {
+  background-color: #fff;
+}
+
+.brush_bg1 {
+  background-color: #ccc;
+}
+
+.brush_bg2 {
+  background-color: #0085c8;
+  color: #fff;
+}
+
+.brush_bd1 {
+  border-color: #ccc;
+}
+
+.brush_bd2 {
+  border-color: #b6d1de
+}
+
+.brush_bd3 {
+  border-color: #0085c8;
+}
+
+.brush_txt1 {
+  color: #333;
+}
+
+.brush_txt2 {
+  color: #14709b;
+}
+
+.quote {
+  padding: 30px 20px;
+  background: #85b3c8;
+}
+
+.quotetext {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.8;
+}
+
+.quotetitle {
+  font-style: italic;
+  text-align: right;
+  padding-top: 10px;
+  color: #555;
+}
+
+.timer {
+  padding: 40px 0;
+}
+
+.timer .legend {
+  border-top: 1px solid #85b3c8;
+  width: 100%;
+  text-align: center;
+}
+
+.timer .legend span {
+  display: inline-block;
+  padding: 4px 20px;
+  color: #fff;
+  background-color: #85b3c8;
+}
+
+.timertext {
+  padding: 30px 0 10px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.timertext .tspan {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 5px;
+}
+
+.timertext .tspan .ti {
+  color: #14709b;
+  font-size: 54px;
+  font-family: 'PT Sans Narrow', 'Arial Narrow';
+  font-weight: bold;
+  line-height: 60px;
+}
+
+.timertext .tspan .tx {
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+}
+
+.line,
+.column,
+.bubble,
+.scatter,
+.kline,
+.pie,
+.donut,
+.rose,
+.ring,
+.pie-many,
+.radar,
+.chord,
+.chord-line,
+.wordcloud,
+.gauge,
+.funnel,
+.pyramid,
+.treemap,
+.multiple {
+  padding: 10px 0;
+  background-color: #f5f5f5
+}
+
+
+/*mobilestyle*/
+
+.page.mobilestyle {
+  padding: 20px 4px;
+}
+
+.mobilestyle .headline {
+  font-size: 2.25em;
+  padding: 10px 0;
+}
+
+.mobilestyle .subtitle {
+  font-size: 1.5em;
+  padding: 4px 0;
+}
+
+.mobilestyle .thirdtitle {
+  font-size: 1.25em;
+}
+
+.mobilestyle .bodytext {
+  line-height: 1.6;
+}
+
+/*svg*/
+.svg-fill {
+  fill: #0085c8;
+  stroke: transparent;
+  stroke-width:2px;
+}
+.svg-layout-fill {
+  fill: #0085c8;
+  stroke: transparent;
+  stroke-width:2px;
+  vector-effect: non-scaling-stroke;
+}
+
+.svg-title {
+  color: #0085c8;
+  font-size: 16px;
+  display: block;
+  padding-bottom: 5px;
+}

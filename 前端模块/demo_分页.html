@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>分页</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<style type="text/css">
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				margin: 16px;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>分页:</pre>
+		<div id="mpage1" class="mpage" data-pages="18" data-curr="1"></div>
+		<div id="mpage2" class="mpage" data-pages="18" data-curr="1"></div>
+		<script>
+			$(function() {
+				$('pre').get(0).innerHTML += location.href;
+				PageFn('#mpage1', 'mpage1'); //分页PageFn('ID', 'href中name')
+				PageFnAjax('#mpage2', function() {
+					console.log($('#mpage2').attr('data-curr'));
+				}); //分页PageFnAjax('ID', 'ajax回调函数')
+			});
+		</script>
+	</body>
+
+</html>

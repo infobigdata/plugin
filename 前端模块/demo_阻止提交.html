@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>回车提交</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<style type="text/css">
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				margin: 16px;
+				position: relative;
+			}
+			
+			.move {
+				width: 100px;
+				height: 100px;
+				background-color: #0077FF;
+				position: absolute;
+				left: 0px;
+				top: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>&lt;form id=&quot;form&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;text&quot; id=&quot;text&quot; value=&quot;&quot; /&gt;
+&lt;input type=&quot;email&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;&quot; /&gt;
+&lt;input id=&quot;submit&quot; type=&quot;submit&quot; value=&quot;&#x63D0;&#x4EA4;&quot; /&gt;
+&lt;/form&gt;
+</pre>
+		<form id="form">
+			<input type="text" name="text" id="text" value="" />
+			<input type="email" name="email" id="email" value="" />
+			<input id="submit" type="submit" value="提交" />
+		</form>
+		<script type="text/javascript">
+			$(function() {
+				$("#form").submit(function(ev) {
+					ev.preventDefault();
+				});
+			});
+		</script>
+	</body>
+
+</html>

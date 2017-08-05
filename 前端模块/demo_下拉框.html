@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉框</title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<link rel="stylesheet" type="text/css" href="mCustomScrollbar/jquery.mCustomScrollbar.min.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script src="mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="js/mbase.js"></script>
+		<script type="text/javascript" src="js/mbaseBind.js"></script>
+	</head>
+
+	<body>
+
+		<div class="mselect">
+			<p class="mchecked"><i>提示语</i></p>
+			<input type="hidden" name="" id="" value="" />
+			<div class="moptio-box mScroll">
+				<span class="moption" value="01">1</span>
+				<span class="moption" value="02">2</span>
+				<span class="moption" value="03">3</span>
+				<span class="moption" value="04">4</span>
+				<span class="moption" value="05">5</span>
+				<span class="moption" value="06">6</span>
+				<span class="moption" value="07">7</span>
+			</div>
+		</div>
+		<div id="mselectBox"></div><br />
+		<select style="width: 200px;">
+			<option>168.com</option>
+			<option>163.net</option>
+			<option>126.com</option>
+			<option>164.com</option>
+			<option>164.net</option>
+			<option>127.com</option>
+			<option>165.com</option>
+			<option>165.net</option>
+			<option>128.com</option>
+		</select>
+		<div id="selectBox"></div>
+		<script type="text/javascript">
+			$(function() {
+				setTimeout(function() {
+					$('#mselectBox').append('<div class="mselect"> <p class="mchecked">1</p> <input type="hidden" name="" id="" value="" /> <div class="moptio-box mScroll"> <span class="moption" value="01">1</span> <span class="moption" value="02">2</span> <span class="moption" value="03">3</span> <span class="moption" value="04">4</span> <span class="moption" value="05">5</span> <span class="moption" value="06">6</span> <span class="moption" value="07">7</span> </div> </div>');
+					DNIFn('#mselectBox');
+
+					$('#selectBox').append('<select placeholder="提示语" style="width: 200px;"> <option>163.com</option> <option>163.net</option> <option>126.com</option> <option>163.com</option> <option>163.net</option> <option>126.com</option> <option>163.com</option> <option>163.net</option> <option>126.com</option> </select>');
+					DNIFn('#selectBox');
+				}, 1000);
+			})
+		</script>
+	</body>
+
+</html>

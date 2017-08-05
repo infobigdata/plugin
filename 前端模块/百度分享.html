@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="fengxianglujing bdsharebuttonbox" data-tag="share_1">
+			<a class="bds_copy M4xunwen" data-cmd="copy"></a>
+			<a class="bds_weixin M4xunwen" data-cmd="weixin"></a>
+			<a class="bds_tsina M4xunwen" data-cmd="tsina"></a>
+			<a class="bds_qzone M4xunwen" data-cmd="qzone"></a>
+			<script>
+				window._bd_share_config = {
+					//此处添加分享具体设置
+					common: {
+						bdText: '分享的内容',
+						bdDesc: '分享的摘要',
+						bdUrl: 'www.baidu.com', //分享的Url地址
+						bdPic: 'http://127.0.0.1:8020/MyAPI/img/img_the_scream.jpg', //分享的图片
+						onBeforeClick: function(cmd, config) { /*在用户点击分享按钮时执行代码，更改配置。cmd为分享目标id， config为当前设置， 返回值为更新后的设置。*/
+							if('条件') {
+								return {
+									bdUrl: 'http://www.qq.com/',
+									bdPic: 'http://mat1.gtimg.com/www/images/qq2012/qqlogo_1x.png',
+								}
+							}
+						},
+					},
+					share: { bdCustomStyle: "css/mbase.css" },//配置本地样式
+				}
+
+				//以下为js加载部分
+				with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+			</script>
+		</div>
+		<style type="text/css">
+			.fengxianglujing .M4xunwen{
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				margin-right: 10px;
+				background-color: #0077FF;
+			}
+		</style>
+	</body>
+
+</html>

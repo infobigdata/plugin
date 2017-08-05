@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>validform</title>
+	<link rel="stylesheet" href="css/basic.css">
+	<link rel="stylesheet" href="css/form.css">
+	<link rel="stylesheet" href="font/style.css">
+	<link rel="stylesheet" href="css/ValidDrag.css">
+</head>
+<body>
+<div class="wrap">
+	<form action="" class="J_validform">
+		<div class="input-items">
+			<lable class="lable icon-user"></lable>
+			<input type="text" class="ipt-text" placeholder="请输入手机号或者邮箱地址" datatype="m|e" errormsg="手机号或者邮箱不正确！">
+		</div>
+
+		<div class="input-items">
+			<lable class="lable icon-key"></lable>
+			<input type="password" class="ipt-text" placeholder="请输入密码" datatype="*6-20">
+		</div>
+
+		<div class="input-items">
+			<lable class="lable icon-email"></lable>
+			<input type="text" class="ipt-text" placeholder="请输入邮箱" datatype="e">
+		</div>
+
+		<div class="input-items">
+			<lable class="lable icon-phone"></lable>
+			<input type="text" class="ipt-text" placeholder="请输入手机号" datatype="m">
+		</div>
+
+		<div class="input-items">
+			<lable class="lable icon-verify"></lable>
+			<input type="text" class="ipt-text ipt-verify" placeholder="请输入图形验证码" datatype="*">
+			<a class="verify-pic" href=""><img src="images/verify.jpg" alt="图形验证码"></a>
+		</div>
+
+		<div class="input-items">
+			<lable class="lable icon-verify"></lable>
+			<input type="text" class="ipt-text ipt-verify" placeholder="请输入手机验证码" datatype="*">
+			<a class="verify-phone" href="">获取短信验证码</a>
+		</div>
+
+		<div class="input-items">
+			<div class="J_dragVerify"></div>
+		</div>
+		
+		<div class="input-items">
+			<!-- <button type="button" class="ipt-submit">提交注册</button> -->
+			<input type="submit" class="ipt-submit" value="提交注册">
+		</div>
+	</form>
+</div>
+
+
+	<!-- include js -->
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/Validform_v5.3.2_min.js"></script>
+	
+	<script>
+		$(".J_validform").Validform();
+	</script>
+	
+	<!-- How use ValidDrag -->
+	<script src="js/ValidDrag.js"></script>
+	<script>
+		$('.J_dragVerify').ValidDrag({
+			'submit':$('.ipt-submit')
+		});
+	</script>
+</body>
+</html>

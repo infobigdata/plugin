@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS basic */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{ margin: 0; padding: 0; box-sizing: border-box;}
+fieldset,img{ border: 0; }
+img{vertical-align: top;}
+:focus{ outline: 0; }
+address,caption,cite,code,dfn,em,strong,th,var,optgroup{ font-style: normal; font-weight: normal; }
+h1,h2,h3,h4,h5,h6{ font-size: 100%; font-weight: normal; font-family: "Arial","Hiragino Sans GB", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif"; }
+input,button,textarea,select{ *font-size: 100%; border:none;}
+body{ background:#fff;font: 12px/1.5 "Arial","Hiragino Sans GB", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif"; }
+ol,ul,li{ list-style: none; }
+table{ border-collapse: collapse; border-spacing: 0; }
+i{ font-style: normal;}
+:link, :visited, ins{ text-decoration: none; }
+.rel{position: relative;}.abs{position: absolute;}.fl{float: left;}.fr{float: right;}
+.w{width: 1080px;min-width:1080px;margin: 0 auto;position: relative;}
+a{color: #666;}a:hover{transition : color 0.2s linear 0s,background-color 0.3 linear 0s;color: #63b2f5;}
+.clearfix:after{content:'\0020';display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{*zoom:1;}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {display: block;}
+
+.wrap{width: 520px;margin: 100px auto;}

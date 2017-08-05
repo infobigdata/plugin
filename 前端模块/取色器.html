@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/mbase.css" />
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mbase.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/mbaseBind.js"></script>
+	</head>
+
+	<body>
+		<!--颜色选择器开始-->
+		<div class="mcolor">
+			<canvas class="mc1"></canvas>
+			<canvas class="mc2"></canvas>
+			<input type="hidden" value="" />
+		</div>
+		<!--颜色选择器结束-->
+		<div id="colorD" style="width: 282px; height: 20px; background: #000;"></div>
+		<div id="mcolorBox"></div>
+		<script type="text/javascript">
+			setTimeout(function() {
+				$('#mcolorBox').append('<div class="mcolor"> <canvas class="mc1"></canvas> <canvas class="mc2"></canvas> <input type="hidden" value="" /> </div>');
+				DNIFn('#mcolorBox');
+			}, 1000);
+
+			$(document).on('change', '.mcolor input', function() {
+				$('#colorD').css('background', $(this).val());
+				console.log($(this).val());
+			});
+		</script>
+	</body>
+
+</html>
