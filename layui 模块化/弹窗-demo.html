@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹窗演示demo</title>
+    <!--页面初始化样式表-->
+    <link rel="stylesheet" type="text/css" href="./css/default.css"  media="all">
+    <!-- 本页面布局样式表-->
+    <link rel="stylesheet" type="text/css" href="./css/demo.css"  media="all">
+    <!-- 自定义翻页样式表-->
+    <link rel="stylesheet" type="text/css" href="./css/my-layui.css"  media="all">
+    <!-- layui插件样式表-->
+    <link rel="stylesheet" type="text/css" href="./layui/css/layui.css"  media="all">
+</head>
+<body>
+<header>
+    <h1>弹窗模板</h1>
+</header>
+<div class="content">
+    <div class="case readme">说明文档:<a href="./弹窗-readme.html">点这里</a> </div>
+    <!--case 1 开始-->
+    <div class="case">
+        <p>最简单的弹窗msg（提示框）</p>
+        <div class="page-box">
+            <input type="button" value="默认样式" id="layer1">
+            <input type="button" value="定义宽高关闭时长" id="layer2">
+            <input type="button" value="带icon正确" id="layer3-1">
+            <input type="button" value="带icon错误" id="layer3-2">
+            <input type="button" value="带icon疑问" id="layer3-3">
+            <input type="button" value="带icon锁" id="layer3-4">
+            <input type="button" value="带icon笑脸" id="layer3-5">
+            <input type="button" value="带icon哭脸" id="layer3-6">
+            <input type="button" value="自定义皮肤" id="layer4">
+        </div>
+    </div>
+    <!--case 1 结束-->
+    <!--case 2 开始-->
+    <div class="case">
+        <p>带有关闭按钮头部的信息框</p>
+        <div class="page-box">
+            <input type="button" value="默认样式" id="layer5">
+            <input type="button" value="带icon正确" id="layer5-icon-1">
+            <input type="button" value="带icon错误" id="layer5-icon-2">
+            <input type="button" value="带icon疑问" id="layer5-icon-3">
+            <input type="button" value="带icon锁" id="layer5-icon-4">
+            <input type="button" value="带icon哭脸" id="layer5-icon-5">
+            <input type="button" value="带icon笑脸" id="layer5-icon-6">
+            <input type="button" value="自定义样式" id="layer5-skin">
+            <input type="button" value="自定义宽度高度自适应" id="layer5-area">
+            <input type="button" value="有回调函数" id="layer5-fn">
+        </div>
+    </div>
+    <!--case 2 结束-->
+
+    <!--case 3 开始-->
+    <div class="case">
+        <p>询问框(confirm)</p>
+        <div class="page-box">
+            <input type="button" value="默认样式" id="layer6">
+            <input type="button" value="带icon正确" id="layer6-icon-1">
+            <input type="button" value="带icon错误" id="layer6-icon-2">
+            <input type="button" value="带icon疑问" id="layer6-icon-3">
+            <input type="button" value="带icon锁" id="layer6-icon-4">
+            <input type="button" value="带icon哭脸" id="layer6-icon-5">
+            <input type="button" value="带icon笑脸" id="layer6-icon-6">
+            <input type="button" value="自定义样式" id="layer6-skin">
+            <input type="button" value="自定义宽度高度自适应" id="layer6-area">
+            <input type="button" value="有回调函数" id="layer6-fn">
+        </div>
+    </div>
+    <!--case 3 结束-->
+    <!--case 4 开始-->
+    <div class="case">
+        <p>加载层(loading)</p>
+        <div class="page-box">
+            <input type="button" value="默认样式" id="layer7">
+            <input type="button" value="风格1" id="layer7-1">
+            <input type="button" value="风格2" id="layer7-2">
+            <input type="button" value="自定义风格1" id="layer7-3">
+            <input type="button" value="模拟异步请求后关闭loading" id="layer7-4">
+            <input type="button" value="runUP中用到的loading" id="layer7-5">
+        </div>
+    </div>
+    <!--case 4 结束-->
+
+    <!--case 5 开始-->
+    <div class="case">
+        <p>吸附层(tips)</p>
+        <div class="page-box">
+            <input type="button" value="默认样式（从右侧出来）" id="layer8">
+            <input type="button" value="默认样式（设定关闭时间）" id="layer8-1">
+            <input type="button" value="从上边出来" id="layer8-2">
+            <input type="button" value="从左边出来" id="layer8-3">
+            <input type="button" value="从下边出来" id="layer8-4">
+            <input type="button" value="自定义颜色" id="layer8-5">
+        </div>
+    </div>
+    <!--case 5 结束-->
+
+    <!--case 6 开始-->
+    <div class="case">
+        <p>捕获层（从页面中捕获内容放入弹窗）</p>
+        <div class="page-box">
+            <input type="button" value="点击弹出" id="layer9">
+        </div>
+    </div>
+    <!--case 6 结束-->
+
+    <!--case 7 开始-->
+    <div class="case">
+        <p>ifream（获取整个页面文件的内容放入弹窗）</p>
+        <div class="page-box">
+            <input type="button" value="ifream层" id="layer10">
+            <input type="button" value="ifream窗" id="layer11">
+        </div>
+    </div>
+    <!--case 7 结束-->
+    <!--case 8 开始-->
+    <div class="case">
+        <p>tab 层</p>
+        <div class="page-box">
+            <input type="button" value="tab层" id="layer12">
+        </div>
+    </div>
+    <!--case 8 结束-->
+    <!--case 9 开始-->
+    <div class="case">
+        <p>相册 弹层</p>
+        <div class="page-box">
+            <input type="button" value="相册弹层" id="layer13">
+        </div>
+    </div>
+    <!--case 9 结束-->
+</div>
+<!--弹出层内容 开始-->
+<div class="my-layer-content" style="display: none">
+    <div class="my-dom-content">你确定要取消此次订单？</div>
+</div>
+<!--弹出层内容 结束-->
+<script src="./layui/layui.js" charset="utf-8"></script>
+<script src="./js/jquery-1.11.0.min.js" charset="utf-8"></script>
+<script src="./js/my-layer.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    $(function() {
+        $('#layer1').bind('click',function(){
+            myLayer.showMsg('hello');
+        });
+        $('#layer2').bind('click',function(){
+            myLayer.showMsg('hello'
+                    ,{
+                        area: ['100px', '50px'] //宽高设置
+                        ,time: 1000//1秒关闭（如果不配置，默认是3秒）
+                    }
+            );
+        });
+        $('#layer3-1').bind('click',function(){
+            myLayer.showMsg('hello',{time:0,icon: 1});
+        });
+        $('#layer3-2').bind('click',function(){
+            myLayer.showMsg('hello',{time:0,icon: 2});
+        });
+        $('#layer3-3').bind('click',function(){
+            myLayer.showMsg('hello',{time:0,icon: 3});
+        });
+        $('#layer3-4').bind('click',function(){
+            myLayer.showMsg('hello',{time:0,icon: 4});
+        });
+        $('#layer3-5').bind('click',function(){
+            myLayer.showMsg('hello',{time:0,icon: 5});
+        });
+        $('#layer3-6').bind('click',function(){
+            myLayer.showMsg('hello',{time:0,icon: 6});
+        });
+        $('#layer4').bind('click',function(){
+            //my-layer-msg : my-laypage.css中定义的class
+            myLayer.showMsg('hello',{time:0,skin:'my-layer-class'});
+        });
+        $('#layer5').bind('click',function(){
+            myLayer.showAlert('hello');
+        });
+        $('#layer5-icon-1').bind('click',function(){
+            myLayer.showAlert('hello',{icon:1});
+        });
+        $('#layer5-icon-2').bind('click',function(){
+            myLayer.showAlert('hello',{icon:2});
+        });
+        $('#layer5-icon-3').bind('click',function(){
+            myLayer.showAlert('hello',{icon:3});
+        });
+        $('#layer5-icon-4').bind('click',function(){
+            myLayer.showAlert('hello',{icon:4});
+        });
+        $('#layer5-icon-5').bind('click',function(){
+            myLayer.showAlert('hello',{icon:5});
+        });
+        $('#layer5-icon-6').bind('click',function(){
+            myLayer.showAlert('hello',{icon:6});
+        });
+        $('#layer5-skin').bind('click',function(){
+            myLayer.showAlert('hello',{icon:6,skin:'my-layer-class',isOutAnim:true});
+        });
+        $('#layer5-area').bind('click',function(){
+            myLayer.showAlert('hello',{icon:6,area: '100px'});
+        });
+        $('#layer5-fn').bind('click',function(){
+            var fnName=function(index){
+                alert('index:'+index);
+            }
+            myLayer.showAlert('hello',{icon:6,area: '100px'},fnName);//高度自适应
+        });
+
+        $('#layer6').bind('click',function(){
+            myLayer.showConfirm('hello');
+        });
+        $('#layer6-icon-1').bind('click',function(){
+            myLayer.showConfirm('hello',{icon:1});
+        });
+        $('#layer6-icon-2').bind('click',function(){
+            myLayer.showConfirm('hello',{icon:2});
+        });
+        $('#layer6-icon-3').bind('click',function(){
+            myLayer.showConfirm('hello',{icon:3});
+        });
+        $('#layer6-icon-4').bind('click',function(){
+            myLayer.showConfirm('hello',{icon:4});
+        });
+        $('#layer6-icon-5').bind('click',function(){
+            myLayer.showConfirm('hello',{icon:5});
+        });
+        $('#layer6-icon-6').bind('click',function(){
+            myLayer.showConfirm('hello',{icon:6});
+        });
+        $('#layer6-skin').bind('click',function(){
+            myLayer.showConfirm('hello',{skin:'my-layer-class'});
+        });
+        $('#layer6-area').bind('click',function(){
+            myLayer.showConfirm('hello',{icon:6,area: '100px'});
+        });
+        $('#layer6-fn').bind('click',function(){
+            var fnName=function(index){
+                alert('index:'+index);
+            }
+            myLayer.showConfirm('hello',{icon:6,area: '100px'},fnName);//高度自适应
+        });
+        $('#layer7').bind('click',function(){
+            myLayer.showLoad();
+        });
+        $('#layer7-1').bind('click',function(){
+            myLayer.showLoad(1);
+        });
+        $('#layer7-2').bind('click',function(){
+            myLayer.showLoad(2);
+        });
+        $('#layer7-3').bind('click',function(){
+            myLayer.showLoad(0,{skin:'my-layer-loading',time:1000});
+
+        });
+        $('#layer7-5').bind('click',function(){
+            myLayer.showLoad(0,{skin:'runup-layer-loading'});
+
+        });
+        $('#layer7-4').bind('click',function(){
+            var fnAjax=function(index){
+                //alert('index:'+index);
+                setTimeout(function(){
+                    layer.close(index);
+                },3000);
+
+            }
+            myLayer.showLoad(0,'',fnAjax);//高度自适应
+        });
+
+        $('#layer8').bind('click',function(){
+            myLayer.showTips('这是个tips','#layer8');
+        });
+        $('#layer8-1').bind('click',function(){
+            myLayer.showTips('这是个tips','#layer8-1',{time:1000});
+        });
+        $('#layer8-2').bind('click',function(){
+            myLayer.showTips('从上面出来','#layer8-2',{time:0,tips:1});
+        });
+        $('#layer8-3').bind('click',function(){
+            myLayer.showTips('从左边出来','#layer8-3',{time:0,tips:4});
+        });
+        $('#layer8-4').bind('click',function(){
+            myLayer.showTips('从下边出来','#layer8-4',{time:0,tips:3});
+        });
+        $('#layer8-5').bind('click',function(){
+            myLayer.showTips('自定义颜色','#layer8-5',{time:0,tips:[4,'#B1D2EC']});
+        });
+        $('#layer9').bind('click',function(){
+            myLayer.showDom($('.my-layer-content'),'我是捕获层');
+        });
+        $('#layer10').bind('click',function(){
+            myLayer.showIfream('ifream-layer.html','我是ifream');
+        });
+        $('#layer11').bind('click',function(){
+            myLayer.showIfreamWin('ifream-layer.html','我是ifream窗口');
+        });
+        $('#layer12').bind('click',function(){
+            var tabs=[{
+                title: 'TAB1',
+                content: $('.my-layer-content').html() //获取当前页面上的内容
+            }, {
+                title: 'TAB2',
+                content: '内容2'
+            }, {
+                title: 'TAB3',
+                content: '内容3'
+            }];
+            myLayer.showTabs(tabs);
+        });
+
+
+        $('#layer13').bind('click',function(){
+            var data={
+                "title": "", //相册标题
+                "id": 123, //相册id
+                "start": 0, //初始显示的图片序号，默认0
+                "data": [   //相册包含的图片，数组格式
+                    {
+                        "alt": "高圆圆",
+                        "pid": 666, //图片id
+                        "src": "image/1.jpg", //原图地址
+                        "thumb": "image/1.jpg" //缩略图地址
+                    }
+                    ,{
+                        "alt": "李诗诗",
+                        "pid": 666, //图片id
+                        "src": "image/2.jpg", //原图地址
+                        "thumb": "image/2.jpg" //缩略图地址
+                    }
+                    ,{
+                        "alt": "高圆圆",
+                        "pid": 666, //图片id
+                        "src": "image/3.jpg", //原图地址
+                        "thumb": "image/3.jpg" //缩略图地址
+                    }
+                ]
+            }
+            myLayer.showPhotos(data);
+        });
+    });
+
+
+</script>
+</body>
+</html>
