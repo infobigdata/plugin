@@ -1,7 +1,7 @@
 #  前端模块化
 
 * [layui 模块化](layui模块化)
-* [图片裁剪（Cropper）](图片裁剪（Cropper）)
+* [图片裁剪（Cropper）](cropper)
 * [Swiper-3.4.2](Swiper-3.4.2)
 * [编辑器](编辑器/ueditor-utf8-jsp/)
 * [表单验证](表单验证)
