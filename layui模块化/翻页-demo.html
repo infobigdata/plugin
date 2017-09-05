@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>翻页演示</title>
+    <!--页面初始化样式表-->
+    <link rel="stylesheet" type="text/css" href="./css/default.css"  media="all">
+    <!-- 本页面布局样式表-->
+    <link rel="stylesheet" type="text/css" href="./css/demo.css"  media="all">
+    <!-- 自定义翻页样式表-->
+    <link rel="stylesheet" type="text/css" href="./css/my-layui.css"  media="all">
+    <!-- layui插件样式表-->
+    <link rel="stylesheet" type="text/css" href="./layui/css/layui.css"  media="all">
+</head>
+<body>
+    <header>
+        <h1>翻页模板</h1>
+    </header>
+    <div class="content">
+        <div class="case readme">说明文档：<a href="./翻页-readme.html">点这里</a> </div>
+        <!--case 0 开始-->
+        <div class="case">
+            <p>默认的翻页样式(全)</p>
+            <div class="page-box">
+                <div id="page" class="my-laypage"></div>
+            </div>
+        </div>
+        <!--case 0 结束-->
+
+        <!--case 1 开始-->
+        <div class="case">
+          <p>自定义页码翻页样式</p>
+           <div class="page-box">
+               <div id="page1"></div>
+           </div>
+        </div>
+        <!--case 1 结束-->
+
+        <!--case 2 开始-->
+        <div class="case">
+            <p>根据标签的属性值传递数据</p>
+            <div class="page-box">
+                <div>
+                    <div id="page2"  pages="20" groups="6" curr="3"></div>
+                </div>
+            </div>
+        </div>
+        <!--case 2 结束-->
+
+        <!--case 3 开始-->
+        <div class="case">
+            <p><>（上一页下一页）</p>
+            <div class="page-box">
+                <div>
+                    <div id="page3"  pages="20" groups="6" curr="3"></div>
+                </div>
+            </div>
+        </div>
+        <!--case 3 结束-->
+
+        <!--case 4 开始-->
+        <div class="case">
+            <p>自定义hash值，完成链接的拼接</p>
+            <div class="page-box">
+                <div>
+                    <div id="page4"  pages="20" groups="6" curr="3"></div>
+                </div>
+            </div>
+        </div>
+        <!--case 4 结束-->
+
+    </div>
+    <script src="./layui/layui.js" charset="utf-8"></script>
+    <script src="./js/jquery-1.11.0.min.js" charset="utf-8"></script>
+    <script src="./js/my-laypage.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        $(function() {
+            //自定义回调函数
+            var cb=function(obj,first){
+                //alert("我是回调函数");
+                 //console.log(obj);
+                 var inputPageDom=$(".layui-laypage-total input.layui-laypage-skip");
+                 inputPageDom.prop("max",obj.pages);
+                //监听输入页面超出最大值提醒
+                 inputPageDom.bind('change',(function(event) {
+                     /* Act on the event */ 
+                        if($(this).val()>obj.pages){
+                            alert("已超出最大页码");
+                            $(this).val(obj.pages);
+                        }
+                 }));  
+                
+            }
+            myLayPage.show();
+            //初始化翻页 case1
+            myLayPage.show({
+                cont: 'page1'//标签ID
+                ,pages: 100 //总页数
+                ,groups: 5 //连续显示分页数
+                ,curr:1 //当前页码
+                ,skin:'#ddd'//颜色
+            },cb);
+            myLayPage.showByAttr('page2');
+            myLayPage.showByPreAndNext('page3');
+            myLayPage.showLocationHash('page4');
+        });
+
+    </script>
+</body>
+</html>
