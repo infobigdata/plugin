@@ -12,3 +12,4 @@
 ***
 
 * [其它](http://www.bootcss.com)
+* [点我，点我](https://infobigdata.github.io/plugin/)
